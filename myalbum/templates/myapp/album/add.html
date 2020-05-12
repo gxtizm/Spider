@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在线相册信息管理</title>
+</head>
+<body>
+	<center>
+		{% include "myapp/album/menu.html"%}
+		<h3>添加图片</h3>
+		<form action="{% url 'insertalbum'%}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<table width="350" border="0">
+				<tr>
+					<td>标题：</td>
+					<td><input type="text" name="title"/></td>
+				</tr>
+				<tr>
+					<td>名称：</td>
+					<td><input type="text" name="name"/></td>
+				</tr>
+				<tr>
+					<td>图片：</td>
+					<td><input type="file" name="mypic"/></td>
+					
+				</tr>
+				<tr>
+					<td colspan="2" align="center" >
+						<input type="submit" value="上传"/>
+						<input type="reset" value="重置"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</center>
+</body>
+</html>

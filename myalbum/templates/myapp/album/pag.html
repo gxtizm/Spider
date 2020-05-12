@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在线相册信息管理</title>
+</head>
+<body>
+	<center>
+		{% include "myapp/album/menu.html"%}
+		<table width="800" border="1">
+			<tr>
+				<th>id号</th>
+				<th>标题</th>
+				<th>图片</th>
+				<th>时间</th>
+				<th>操作</th>
+			</tr>
+			{% for vo in ulist%}
+			<tr>
+				<td>{{ vo.id }}</td>
+				<td>{{ vo.title }}</td>
+				<td>{{ vo.name }}</td>
+				<td>{{ vo.addtime|date:"Y-m-d H:i:s" }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+
+		{% for i in plist %}
+			{% if i == pIndex %}
+				<b style="color:red">{{i}}</b>
+			{% else %}
+				<a href="{% url 'pagalbum' i %}">{{i}}</a>
+			{% endif %}
+		{% endfor %}
+	</center>
+</body>
+</html>
+
+
+
